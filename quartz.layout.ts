@@ -5,13 +5,33 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
-  footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
-  }),
+  afterBody: [
+    Component.Flex({
+      components: [
+        {
+          Component: Component.DesktopOnly(Component.Graph()),
+          basis: "45%",
+        },
+        {
+          Component: Component.DesktopOnly(Component.Spacer()), 
+          basis: "5%", 
+        },
+        { 
+          Component: Component.Backlinks(),
+          align: "start",
+          basis: "50%",
+        },
+      ],
+    }),    
+  ],
+  footer: Component.Footer(
+  //   {
+  //   links: {
+  //     GitHub: "https://github.com/jackyzha0/quartz",
+  //     "Discord Community": "https://discord.gg/cRFFHYye7t",
+  //   },
+  // }
+),
 }
 
 // components for pages that display a single page (e.g. a single note)
@@ -22,7 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    // Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
@@ -35,15 +55,15 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
+        // { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
+    // Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    // Component.Backlinks(),
   ],
 }
 
