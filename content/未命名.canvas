@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"04e2c41fc96ca819","x":-243,"y":-129,"width":315,"height":254,"type":"text","text":"测试\n\n[[index]]"},
+		{"id":"3f46f5a7a58aa45b","x":212,"y":12,"width":250,"height":60,"type":"text","text":"测试"}
+	],
+	"edges":[
+		{"id":"99b198bba88e3c39","fromNode":"04e2c41fc96ca819","fromSide":"right","toNode":"3f46f5a7a58aa45b","toSide":"left"}
+	]
+}
