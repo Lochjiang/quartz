@@ -56,6 +56,18 @@ article {
   font-family: "lxgw", serif !important;
 }
 
+.toc a {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  color: var(--darkgray); /* 保持文字颜色协调 */
+}
+
+.toc a:hover {
+  background-color: var(--lightgray); /* 自动适配明暗主题的浅灰色 */
+}
+
 // article h1,
 // article h2,
 // article h3,
