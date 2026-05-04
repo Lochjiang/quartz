@@ -22,7 +22,26 @@ export const sharedPageComponents: SharedLayout = {
           basis: "50%",
         },
       ],
-    }),    
+    }),  
+  Component.Comments({
+    provider: 'giscus',
+    options: {
+            // from data-repo
+      repo: 'jackyzha0/quartz',
+      // from data-repo-id
+      repoId: 'MDEwOlJlcG9zaXRvcnkzODcyMTMyMDg',
+      // from data-category
+      category: 'Announcements',
+      // from data-category-id
+      categoryId: 'DIC_kwDOFxRnmM4B-Xg6',
+      // from data-lang
+      lang: 'en',
+      // Other options
+      themeUrl: "https://example.com/static/giscus", // corresponds to quartz/static/giscus/
+      lightTheme: "light-theme", // corresponds to light-theme.css in quartz/static/giscus/
+      darkTheme: "dark-theme", // corresponds to dark-theme.css quartz/static/giscus/
+    }
+  }),
   ],
   footer: Component.Footer(
   //   {
