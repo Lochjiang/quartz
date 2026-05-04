@@ -23,22 +23,22 @@ export const sharedPageComponents: SharedLayout = {
         },
       ],
     }),  
-  Component.Comments({
-    provider: 'giscus',
-    options: {
-            // from data-repo
-      repo: 'Lochjiang/Lochjiang.github.io',
-      // from data-repo-id
-      repoId: 'R_kgDOSRsvyg',
-      // from data-category
-      category: 'Announcements',
-      // from data-category-id
-      categoryId: 'DIC_kwDOSRsvys4C8R9g',
-      // from data-lang
-      lang: 'zh-CN',
-      // Other options
-    }
-  }),
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+              // from data-repo
+        repo: 'Lochjiang/Lochjiang.github.io',
+        // from data-repo-id
+        repoId: 'R_kgDOSRsvyg',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOSRsvys4C8R9g',
+        // from data-lang
+        lang: 'zh-CN',
+        // Other options
+      }
+    }),
   ],
   footer: Component.Footer(
   //   {
