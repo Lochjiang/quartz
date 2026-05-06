@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: "Schibsted Grotesk",
         body: "Source Sans Pro",
-        // body: "LXGW WenKai",
+        // body: "LXGW WenKai TC",
         code: "IBM Plex Mono",
       },
       colors: {

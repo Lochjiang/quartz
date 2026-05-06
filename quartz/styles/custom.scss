@@ -47,14 +47,14 @@ article h6::before {
 }
 
 @font-face {
-  font-family: "lxgw";
+  font-family: "LXGW server";
   src: url("/static/fonts/LXGWWenKaiGBScreenR.woff2") format("woff2");
   font-display: swap;
 }
 
 article {
-  font-family: "lxgw", "LXGW WenKai";
-  // font-family: "lxgw", "LXGW WenKai" !important;
+  font-family: "LXGW server", "LXGW WenKai";
+  // font-family: "LXGW server", "LXGW WenKai" !important;
   // font-family: "LXGW WenKai";
 }
 
