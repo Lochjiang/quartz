@@ -26,7 +26,7 @@ export const sharedPageComponents: SharedLayout = {
     Component.Comments({
       provider: 'giscus',
       options: {
-              // from data-repo
+        // from data-repo
         repo: 'Lochjiang/Lochjiang.github.io',
         // from data-repo-id
         repoId: 'R_kgDOSRsvyg',
