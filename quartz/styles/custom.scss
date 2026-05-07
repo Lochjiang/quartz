@@ -81,6 +81,28 @@ article {
   }
 }
 
+/* ========================================== */
+/* 资源管理器（左侧文件树）悬停高亮样式         */
+/* ========================================== */
+
+.explorer {
+  /* 选中资源管理器里的所有文件(a)和文件夹(button) */
+  ul li a, 
+  ul li button {
+    /* 同样加上平滑的过渡动画 */
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      /* 鼠标悬停时，文字变成我们在 TOC 里用过的次要强调色 */
+      color: var(--tertiary); 
+      
+      /* 可选：如果你想要一点背景色块，可以取消下面两行的注释 */
+      /* background-color: var(--highlight); */
+      /* border-radius: 4px; */
+    }
+  }
+}
+
 // article h1,
 // article h2,
 // article h3,
