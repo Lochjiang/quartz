@@ -24,7 +24,7 @@ export const sharedPageComponents: SharedLayout = {
       ],
     }),  
     Component.ConditionalRender({
-      component:     Component.Comments({
+      component: Component.Comments({
       provider: 'giscus',
       options: {
         // from data-repo
@@ -38,8 +38,8 @@ export const sharedPageComponents: SharedLayout = {
         // from data-lang
         lang: 'zh-CN',
         // Other options
-      }
-    }),
+        }
+      }),
       condition: (page) => page.fileData.frontmatter?.comments === true,
     }),
 
