@@ -23,7 +23,8 @@ export const sharedPageComponents: SharedLayout = {
         },
       ],
     }),  
-    Component.Comments({
+    Component.ConditionalRender({
+      component:     Component.Comments({
       provider: 'giscus',
       options: {
         // from data-repo
@@ -39,6 +40,9 @@ export const sharedPageComponents: SharedLayout = {
         // Other options
       }
     }),
+      condition: (page) => page.fileData.frontmatter?.comments === true,
+    }),
+
   ],
   footer: Component.Footer(
   //   {
