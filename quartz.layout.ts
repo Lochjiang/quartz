@@ -80,7 +80,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
-      folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
+      // folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
     }),
   ],
   right: [
@@ -107,7 +107,7 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
       title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
-      folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
+      // folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
     }),
   ],
   right: [],
