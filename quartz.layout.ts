@@ -78,7 +78,10 @@ export const defaultContentPageLayout: PageLayout = {
         // { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
+      folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
+    }),
   ],
   right: [
     // Component.Graph(),
@@ -102,7 +105,10 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
+      folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
+    }),
   ],
   right: [],
 }
