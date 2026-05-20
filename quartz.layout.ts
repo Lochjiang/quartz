@@ -46,13 +46,13 @@ export const sharedPageComponents: SharedLayout = {
       provider: 'giscus',
       options: {
         // from data-repo
-        repo: 'Lochjiang/Lochjiang.github.io',
+        repo: 'Lochjiang/comments',
         // from data-repo-id
-        repoId: 'R_kgDOSRsvyg',
+        repoId: 'R_kgDOSi8X4Q',
         // from data-category
         category: 'Announcements',
         // from data-category-id
-        categoryId: 'DIC_kwDOSRsvys4C8R9g',
+        categoryId: 'DIC_kwDOSi8X4c4C9dhU',
         // from data-lang
         lang: 'zh-CN',
         // Other options
