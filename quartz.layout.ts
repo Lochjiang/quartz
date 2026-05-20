@@ -32,7 +32,7 @@ export const sharedPageComponents: SharedLayout = {
         if (slug?.startsWith("tags/")) return false;
         
         // 2. 排除自动生成的文件夹列表页：纯生成的列表页没有实际的 markdown 物理文件路径
-        if (!page.fileData.filePath) return false;
+        if (slug?.endsWith("/index")) return false;
 
         // 如果你有其他想排除的特定页面，也可以在这里加上，例如：
         // if (slug === "index") return false; // 排除主页
