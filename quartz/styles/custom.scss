@@ -121,3 +121,44 @@ em {
   color: var(--gray); /* 使用 Quartz 内置的灰色变量，确保完美适配明暗双色主题 */
 }
 
+/* 弹性倾斜效果 */
+.readermode svg {
+  /* 使用 cubic-bezier 让动画带有一点 Q 弹的感觉 */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), stroke 0.2s ease;
+}
+
+[reader-mode="on"] .readermode svg {
+  stroke: var(--secondary) !important;
+  /* 逆时针倾斜 15 度 */
+  transform: rotate(-15deg); 
+}
+
+// /* 发光效果 */
+// .readermode svg {
+//   transition: filter 0.3s ease, stroke 0.3s ease;
+// }
+
+// [reader-mode="on"] .readermode svg {
+//   stroke: var(--secondary) !important; 
+//   /* 利用 drop-shadow 制造与图标相同颜色的光晕 */
+//   filter: drop-shadow(0 0 6px var(--secondary)); 
+// }
+
+/* 纯净模式下：隐藏杂项内容 */
+[reader-mode="on"] {
+  
+  /* 1. 彻底移除：标签、正文之后的所有内容、底部页脚（不留空间） */
+  .center > article ~ *,    
+  footer {                  
+    display: none !important;
+  }
+
+  /* 2. 隐身保留：隐藏 面包屑导航 和 Metadata（保留排版间距，防止页面上跳） */
+  // ul.tags,                  
+  .breadcrumb-container,    /* 面包屑隐身 */
+  .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
+  .content-meta {           /* Metadata隐身 */
+    visibility: hidden !important; 
+  }
+  
+}
