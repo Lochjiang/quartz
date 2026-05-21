@@ -115,3 +115,9 @@ em {
 // article h6 {
 //   font-family: "lxgw", serif;
 // }
+
+.content-meta {
+  font-size: 0.8rem;  /* 调整此数值改变大小，默认通常偏大。可尝试 0.75rem 或 12px */
+  color: var(--gray); /* 使用 Quartz 内置的灰色变量，确保完美适配明暗双色主题 */
+}
+
