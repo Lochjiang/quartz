@@ -160,7 +160,7 @@ em {
   .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
   .content-meta {           /* Metadata隐身 */
     opacity: 0 !important; /* 平时完全透明 */
-    transition: opacity 0.4s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
+    transition: opacity 0.2s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
   /* 当鼠标悬停在它们所在的位置时，恢复不透明度 */
   .breadcrumb-container:hover,
   .breadcrumbs:hover,
