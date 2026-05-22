@@ -122,16 +122,16 @@ em {
 }
 
 /* 弹性倾斜效果 */
-.readermode svg {
-  /* 使用 cubic-bezier 让动画带有一点 Q 弹的感觉 */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), stroke 0.2s ease;
-}
+// .readermode svg {
+//   /* 使用 cubic-bezier 让动画带有一点 Q 弹的感觉 */
+//   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), stroke 0.2s ease;
+// }
 
-[reader-mode="on"] .readermode svg {
-  stroke: var(--secondary) !important;
-  /* 逆时针倾斜 15 度 */
-  transform: rotate(-15deg); 
-}
+// [reader-mode="on"] .readermode svg {
+//   stroke: var(--secondary) !important;
+//   /* 逆时针倾斜 15 度 */
+//   transform: rotate(-15deg); 
+// }
 
 // /* 发光效果 */
 // .readermode svg {
@@ -151,6 +151,7 @@ em {
   .center > article ~ *,    
   footer {                  
     display: none !important;
+    // visibility: hidden !important;
   }
 
   /* 2. 隐身保留：隐藏 面包屑导航 和 Metadata（保留排版间距，防止页面上跳） */
@@ -158,7 +159,27 @@ em {
   .breadcrumb-container,    /* 面包屑隐身 */
   .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
   .content-meta {           /* Metadata隐身 */
-    visibility: hidden !important; 
+    opacity: 0 !important; /* 平时完全透明 */
+    transition: opacity 0.4s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
+  /* 当鼠标悬停在它们所在的位置时，恢复不透明度 */
+  .breadcrumb-container:hover,
+  .breadcrumbs:hover,
+  .content-meta:hover {
+    opacity: 1 !important; 
   }
-  
+}
+
+/* 极简版：平时极浅（半透明），开启时恢复原貌 + 翻转 */
+.readermode {
+  svg {
+    opacity: 0.4; /* 👇 核心在这里：0.4 表示只有 40% 的不透明度，非常浅 */
+    transition: transform 0.5s, opacity 0.3s; /* 让透明度变化也平滑过渡 */
+  }
+}
+
+[reader-mode="on"] .readermode {
+  svg {
+    opacity: 1; /* 👆 开启时恢复 100% 完全显示 */
+    transform: rotateY(180deg); /* 3D 翻转 */
+  }
 }
