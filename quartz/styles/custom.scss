@@ -173,7 +173,7 @@ em {
 .readermode {
   svg {
     opacity: 0.4; /* 👇 核心在这里：0.4 表示只有 40% 的不透明度，非常浅 */
-    transition: transform 0.5s, opacity 0.3s; /* 让透明度变化也平滑过渡 */
+    transition: transform 0.2s, opacity 0.2s; /* 让透明度变化也平滑过渡 */
   }
 }
 
