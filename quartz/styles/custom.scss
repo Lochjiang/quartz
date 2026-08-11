@@ -181,3 +181,38 @@ article.hide-folder-list + .page-listing {
     }
   }
 }
+
+[saved-theme="dark"] .callout[data-callout="weibo"] {
+  --color: #ffffff;
+  --border: #333333;
+  --bg: #1e1e1e;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  .callout-title-inner > p {
+    color: #999999;
+  }
+  }
+
+[data-slug="便签墙"] {
+    /* 1. 彻底移除：标签、正文之后的所有内容、底部页脚（不留空间） */
+  .center > article ~ *,    
+  .breadcrumb-container,    /* 面包屑隐身 */
+  .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
+  .content-meta ,
+  footer {                  
+    display: none !important;
+    // visibility: hidden !important;
+  }
+
+  /* 2. 隐身保留：隐藏 面包屑导航 和 Metadata（保留排版间距，防止页面上跳） */
+  // ul.tags,    
+  .sidebar.left
+{           /* Metadata隐身 */
+    opacity: 0 !important; /* 平时完全透明 */
+    transition: opacity 0.2s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
+  /* 当鼠标悬停在它们所在的位置时，恢复不透明度 */
+  .sidebar.left:hover{
+    opacity: 1 !important; 
+  }
+}
