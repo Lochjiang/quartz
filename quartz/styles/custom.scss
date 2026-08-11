@@ -1,3 +1,218 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+article h1 {
+  text-align: center;
+}
+
+article h2 {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  padding-bottom: 3px;
+}
+
+article h4,
+article h5,
+article h6 {
+  position: relative;
+  padding-left: 5px;
+}
+
+article h4::before,
+article h5::before,
+article h6::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  border-radius: 5px;
+}
+
+/* 分级样式 */
+article h4::before {
+  height: 20px;
+  background-color: salmon;
+}
+
+article h5::before {
+  height: 15px;
+  background-color: gold;
+}
+
+article h6::before {
+  height: 10px;
+  background-color: skyblue;
+}
+
+@font-face {
+  font-family: "LXGW server";
+  src: url("./static/fonts/LXGWWenKaiGBScreenR.woff2") format("woff2");
+  font-display: swap;
+}
+
+article {
+  font-family: "LXGW server", "LXGW WenKai";
+}
+
+/* 目录标题悬停高亮样式 */
+.toc {
+  ul {
+    li {
+      a {
+        /* 添加平滑的过渡动画，让高亮显得不那么生硬 */
+        transition: color 0.2s ease, background-color 0.2s ease; 
+
+        &:hover {
+          /* 方式一：更改文字颜色（推荐使用 Quartz 的内置主题色变量，如 --tertiary 或 --secondary） */
+          color: var(--tertiary); 
+          
+          /* 方式二：如果你想使用自定义颜色，可以直接写颜色值，例如：
+          color: #ff7e67; */
+
+          /* 可选：如果你希望悬停时有背景色块高亮，可以取消下面这行的注释 */
+          /* background-color: var(--highlight); */
+          /* border-radius: 4px; */
+          /* padding: 0 4px; */
+        }
+      }
+    }
+  }
+}
+
+/* ========================================== */
+/* 资源管理器（左侧文件树）悬停高亮样式         */
+/* ========================================== */
+
+.explorer {
+  /* 选中资源管理器里的所有文件(a)和文件夹(button) */
+  ul li a, 
+  ul li button {
+    /* 同样加上平滑的过渡动画 */
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      /* 鼠标悬停时，文字变成我们在 TOC 里用过的次要强调色 */
+      color: var(--tertiary); 
+      
+      /* 可选：如果你想要一点背景色块，可以取消下面两行的注释 */
+      /* background-color: var(--highlight); */
+      /* border-radius: 4px; */
+    }
+  }
+}
+
+em {
+  color:grey; // 灰色
+}
+
+.content-meta {
+  font-size: 0.8rem;  /* 调整此数值改变大小，默认通常偏大。可尝试 0.75rem 或 12px */
+  color: var(--gray); /* 使用 Quartz 内置的灰色变量，确保完美适配明暗双色主题 */
+}
+
+/* 纯净模式下：隐藏杂项内容 */
+[reader-mode="on"] {
+  
+  /* 1. 彻底移除：标签、正文之后的所有内容、底部页脚（不留空间） */
+  .center > article ~ *,    
+  footer {                  
+    display: none !important;
+    // visibility: hidden !important;
+  }
+
+  /* 2. 隐身保留：隐藏 面包屑导航 和 Metadata（保留排版间距，防止页面上跳） */
+  // ul.tags,                  
+  .breadcrumb-container,    /* 面包屑隐身 */
+  .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
+  .content-meta {           /* Metadata隐身 */
+    opacity: 0 !important; /* 平时完全透明 */
+    transition: opacity 0.2s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
+  /* 当鼠标悬停在它们所在的位置时，恢复不透明度 */
+  .breadcrumb-container:hover,
+  .breadcrumbs:hover,
+  .content-meta:hover {
+    opacity: 1 !important; 
+  }
+}
+
+/* 极简版：平时极浅（半透明），开启时恢复原貌 + 翻转 */
+.readermode {
+  svg {
+    opacity: 1; /* 👇 核心在这里：0.4 表示只有 40% 的不透明度，非常浅 */
+    transition: transform 0.2s, opacity 0.2s; /* 让透明度变化也平滑过渡 */
+  }
+}
+
+[reader-mode="on"] .readermode {
+  svg {
+    opacity: 0.4; /* 👆 开启时恢复 100% 完全显示 */
+    transform: rotateY(180deg); /* 3D 翻转 */
+  }
+}
+
+/* 当 article 带有 hide-folder-list 类名时，隐藏紧跟在它后面的 .page-listing（文件列表） */
+article.hide-folder-list + .page-listing {
+  display: none !important;
+}
+
+// -------------------
+// 存档
+// -------------------
+
+.callout[data-callout="weibo"] {
+  --callout-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='3' y='19' font-size='20'>@</text></svg>");
+  --color: #000000;
+  --border: #ffffff;
+  --bg: #ffffff;
+  border-bottom: 4px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  .callout-title {
+    padding: 6px 0px;
+    .callout-icon {
+      display: none;
+    }
+    .callout-title-inner > p  {
+      font-size: 0.75rem; 
+      font-weight: 400;      /* 变细：400 是正常粗细，如果需要更细可以改成 300 */
+      font-family: Source Sans Pro; /* 使用等宽字体 */
+      color:grey;
+    }
+  }
+}
+
+[saved-theme="dark"] .callout[data-callout="weibo"] {
+  --color: #ffffff;
+  --border: #333333;
+  --bg: #1e1e1e;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  .callout-title-inner > p {
+    color: #999999;
+  }
+  }
+
+[data-slug="便签墙"] {
+    /* 1. 彻底移除：标签、正文之后的所有内容、底部页脚（不留空间） */
+  .center > article ~ *,    
+  .breadcrumb-container,    /* 面包屑隐身 */
+  .breadcrumbs,             /* 面包屑隐身（兼容备用类名） */
+  .content-meta ,
+  footer {                  
+    display: none !important;
+    // visibility: hidden !important;
+  }
+
+  /* 2. 隐身保留：隐藏 面包屑导航 和 Metadata（保留排版间距，防止页面上跳） */
+  // ul.tags,    
+  .sidebar.left
+{           /* Metadata隐身 */
+    opacity: 0 !important; /* 平时完全透明 */
+    transition: opacity 0.2s ease !important; /* 加一个 0.4 秒的平滑淡入淡出动画，更加优雅 */  }
+  /* 当鼠标悬停在它们所在的位置时，恢复不透明度 */
+  .sidebar.left:hover{
+    opacity: 1 !important; 
+  }
+}
