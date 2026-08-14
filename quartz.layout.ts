@@ -59,6 +59,12 @@ export const sharedPageComponents: SharedLayout = {
         }
       }),
       condition: (page) => page.fileData.frontmatter?.comments === true,
+      // condition: (page) => {
+      //   const slug = page.fileData.slug;       
+      //   if (slug?.startsWith("tags/")) return false;        
+      //   if (slug?.endsWith("/index")) return false;
+      //   return true; 
+      // }
     }),
 
   ],
