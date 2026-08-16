@@ -46,14 +46,14 @@ article h6::before {
   background-color: skyblue;
 }
 
-// @font-face {
-//   font-family: "LXGW server";
-//   src: url("./static/fonts/LXGWWenKaiGBScreenR.woff2") format("woff2");
-//   font-display: swap;
-// }
+@font-face {
+  font-family: "LXGW server";
+  src: url("./static/fonts/LXGWWenKaiGBScreenR.woff2") format("woff2");
+  font-display: swap;
+}
 
 article {
-  font-family: "LXGW WenKai TC";
+  font-family: "Source Sans Pro", "LXGW server";
 }
 
 /* 目录标题悬停高亮样式 */
