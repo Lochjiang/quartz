@@ -220,3 +220,113 @@ article.hide-folder-list + .page-listing {
 .footnotes > h2 {
   display: none;
 }
+
+// ----
+// 存档
+// ----
+
+/* 基础卡片样式（外层容器） */
+.custom-card {
+  display: flex;             /* 使用 flex 布局 */
+  flex-direction: row;       /* 默认电脑端水平排列：左图右文 */
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;        /* 圆角 */
+  overflow: hidden;          /* 确保图片不溢出圆角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 淡淡的阴影提升质感 */
+  max-width: 800px;          /* 限制最大宽度，可视情况调整 */
+  margin: 20px auto;
+}
+
+/* 图片区域容器（左边） */
+.custom-card-img {
+  width: 40%;
+  flex-shrink: 0;
+}
+
+/* 图片本身 */
+.custom-card-img img {
+  width: 100% ;
+  height: 200px ;
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;          /* 核心修复：强行干掉 Quartz 给图片加的外边距 */
+}
+
+/* 文字内容区域（右边） */
+.custom-card-content {
+  display: flex;
+  flex-direction: column;    /* 右侧内容内部垂直排列 */
+  padding: 20px;
+  width: 60%;                /* 电脑端文字占60%宽度 */
+}
+
+/* 标题 - 顶部 */
+.custom-card-title {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: bold;        
+}
+
+/* 节选 - 中间 */
+.custom-card-excerpt {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;    /* 这里的 3 表示最多显示 3 行，您可以根据需要改成 2 或 4 */
+  overflow: hidden;         /* 隐藏超出范围的文字 */
+  text-overflow: ellipsis;  /* 超出部分显示省略号 */
+}
+
+/* 底部区域 - Meta信息和链接 */
+.custom-card-footer {
+  margin-top: auto;          /* 关键代码：自动利用剩余空间，将 footer 推到最底部 */
+  display: flex;
+  justify-content: space-between; /* meta信息在左，链接在右 */
+  align-items: center; /*横向中轴线对齐*/
+  padding-top: 15px; /*上方预留空间*/
+  border-top: 1px solid #f0f0f0;  /* 加一条细线与上文隔开 */
+}
+
+/* Meta 标签样式 */
+.custom-card-meta span {
+  margin-right: 12px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* 跳转链接样式 */
+.custom-card .internal-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;        
+}
+
+/* =========================================
+   移动端响应式设计 (屏幕宽度小于 768px 时生效)
+   ========================================= */
+@media (max-width: 768px) {
+  .custom-card {
+    flex-direction: column;  /* 改为垂直排列：上图下文 */
+  }
+
+  .custom-card-img {
+    width: 100%;             /* 图片占满宽度 */
+    height: 200px;           /* 移动端给图片设定一个固定高度 */
+  }
+
+  .custom-card-content {
+    width: 100%;             /* 文字区域占满宽度 */
+    box-sizing: border-box;  /* 确保 padding 不会撑破容器 */
+  }
+  
+  .custom-card-excerpt {
+    margin-bottom: 20px;     /* 移动端中间和底部增加一点间距 */
+  }
+}
