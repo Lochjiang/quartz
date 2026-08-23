@@ -365,6 +365,9 @@ article.hide-folder-list + .page-listing {
       padding: 0;
       list-style: none; //没有小圆点，例如 - tag
       margin-left: auto;
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 }
