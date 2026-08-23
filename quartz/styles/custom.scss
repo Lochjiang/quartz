@@ -330,3 +330,41 @@ article.hide-folder-list + .page-listing {
     margin-bottom: 20px;     /* 移动端中间和底部增加一点间距 */
   }
 }
+
+// --------------------
+// 最近更新列表元素强制横向
+// -------------------
+
+.recent-notes {
+  & > ul.recent-ul > li .section {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap; // 如果空间不够，允许换行
+    gap: 0.5rem;
+
+    // 控制显示顺序：日期 - 标题 - 标签
+    & > .meta {
+      order: 1;
+      margin: 0;
+      white-space: nowrap; //日期不要换行
+      opacity: 0.6;
+    }
+
+    & > .desc {
+      order: 2;
+      h3 {
+        margin: 0;
+      }
+    }
+
+    & > .tags {
+      order: 3;
+      display: flex;
+      gap: 0.3rem;
+      margin: 0;
+      padding: 0;
+      list-style: none; //没有小圆点，例如 - tag
+      margin-left: auto;
+    }
+  }
+}

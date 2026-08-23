@@ -35,7 +35,7 @@ export const sharedPageComponents: SharedLayout = {
         if (slug?.endsWith("/index")) return false;
 
         // 如果你有其他想排除的特定页面，也可以在这里加上，例如：
-        // if (slug === "index") return false; // 排除主页
+        if (slug === "最近更新") return false; // 排除主页
 
         return true; 
       }
@@ -66,7 +66,15 @@ export const sharedPageComponents: SharedLayout = {
       //   return true; 
       // }
     }),
-
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title:'',
+        limit: 5,
+        // showTags: false,
+        filter: (page) => page.slug !== "最近更新",
+      }),
+      condition: (page) => page.fileData.slug === "最近更新",
+    })
   ],
   footer: Component.Footer(
   //   {
