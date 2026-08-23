@@ -71,7 +71,7 @@ export const sharedPageComponents: SharedLayout = {
         title:'',
         limit: 5,
         // showTags: false,
-        filter: (page) => page.slug !== "最近更新",
+        filter: (page) => !["最近更新", "便签墙"].includes(page.slug!),
       }),
       condition: (page) => page.fileData.slug === "最近更新",
     })
