@@ -66,15 +66,7 @@ export const sharedPageComponents: SharedLayout = {
       //   return true; 
       // }
     }),
-    Component.ConditionalRender({
-      component: Component.RecentNotes({
-        title:'',
-        limit: 5,
-        // showTags: false,
-        filter: (page) => !["最近更新", "便签墙","index"].includes(page.slug!),
-      }),
-      condition: (page) => page.fileData.slug === "最近更新",
-    })
+
   ],
   footer: Component.Footer(
   //   {
@@ -96,6 +88,15 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title:'',
+        limit: 7,
+        // showTags: false,
+        filter: (page) => !["最近更新", "便签墙","index"].includes(page.slug!),
+      }),
+      condition: (page) => page.fileData.slug === "最近更新",
+    })
   ],
   left: [
     Component.PageTitle(),
