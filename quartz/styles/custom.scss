@@ -229,8 +229,8 @@ article.hide-folder-list + .page-listing {
 .custom-card {
   display: flex;             /* 使用 flex 布局 */
   flex-direction: row;       /* 默认电脑端水平排列：左图右文 */
-  background-color: #fff;
-  border: 1px solid #eaeaea;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
   border-radius: 8px;        /* 圆角 */
   overflow: hidden;          /* 确保图片不溢出圆角 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 淡淡的阴影提升质感 */
@@ -265,14 +265,14 @@ article.hide-folder-list + .page-listing {
 .custom-card-title {
   margin: 0 0 10px 0;
   font-size: 1.3rem;
-  color: #333;
+  color: var(--dark);
   font-weight: bold;        
 }
 
 /* 节选 - 中间 */
 .custom-card-excerpt {
   margin: 0;
-  color: #666;
+  color: var(--dark);
   line-height: 1.6;
   font-size: 0.95rem;
 
@@ -290,19 +290,19 @@ article.hide-folder-list + .page-listing {
   justify-content: space-between; /* meta信息在左，链接在右 */
   align-items: center; /*横向中轴线对齐*/
   padding-top: 15px; /*上方预留空间*/
-  border-top: 1px solid #f0f0f0;  /* 加一条细线与上文隔开 */
+  border-top: 1px solid var(--lightgray);
 }
 
 /* Meta 标签样式 */
 .custom-card-meta span {
   margin-right: 12px;
   font-size: 0.85rem;
-  color: #888;
+  color: gray;
 }
 
 /* 跳转链接样式 */
 .custom-card .internal-link {
-  color: #007bff;
+  color: var(--secondary);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: bold;        
