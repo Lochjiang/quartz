@@ -93,7 +93,7 @@ export const defaultContentPageLayout: PageLayout = {
         title:'',
         limit: 7,
         // showTags: false,
-        filter: (page) => !["最近更新", "便签墙","index"].includes(page.slug!),
+        filter: (page) => !["最近更新", "便签墙", "index", "词典"].includes(page.slug!),
       }),
       condition: (page) => page.fileData.slug === "最近更新",
     })
@@ -115,7 +115,7 @@ export const defaultContentPageLayout: PageLayout = {
       title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
       // folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
       filterFn: (node) => {
-      const omit = new Set(["隐空间","词典","文库"])
+      const omit = new Set(["归档","词典","文库"])
       return !omit.has(node.displayName.toLowerCase())
       },
     }),
@@ -147,7 +147,7 @@ export const defaultListPageLayout: PageLayout = {
       title: "导航", // 给一个标题，确保它像个侧边栏而不是折叠菜单
       // folderClickBehavior: "collapse", // 点击文件夹名时：折叠/展开
       filterFn: (node) => {
-      const omit = new Set(["隐空间","词典","文库"])
+      const omit = new Set(["归档","词典","文库"])
       return !omit.has(node.displayName.toLowerCase())
       },
     }),
