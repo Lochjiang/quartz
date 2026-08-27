@@ -93,7 +93,7 @@ export const defaultContentPageLayout: PageLayout = {
         title:'',
         limit: 7,
         // showTags: false,
-        filter: (page) => !["最近更新", "便签墙", "index", "词典"].includes(page.slug!),
+        filter: (page) => !["最近更新", "便签墙", "index"].includes(page.slug!),
       }),
       condition: (page) => page.fileData.slug === "最近更新",
     })
